@@ -13,6 +13,7 @@ namespace StarWar.UI.ConsoleApp.Screens
         protected virtual void WriteBody() { }
         public void WriteScreen()
         {
+            Console.Clear();
             WriteHead();
             WriteBody();
         }

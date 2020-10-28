@@ -40,7 +40,7 @@ namespace StarWar.Microservices.Starship.Infrastructure.Swapi
             string apiResponse = await response.Content.ReadAsStringAsync();
             var page = JsonConvert.DeserializeObject<StarshipListQueryResult>(apiResponse);
             if (!string.IsNullOrWhiteSpace(page.next) && count < page.count && count < 10000)
-                page.results.Concat(await GetAPIStarships(count + page.results.Count(), page.next));
+                page.results = page.results.Concat(await GetAPIStarships(count + page.results.Count(), page.next)).ToList();
             return page.results.ToList();
         }
 

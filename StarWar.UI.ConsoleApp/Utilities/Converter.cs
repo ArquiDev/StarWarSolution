@@ -36,7 +36,7 @@ namespace StarWar.UI.ConsoleApp.Utilities
                         default:
                             if (int.TryParse(param, out distance))
                                 options.DistanceMGLT = distance;
-                            else
+                            else if(!string.IsNullOrWhiteSpace(param))
                                 options.ListErrors.Add($"Unknown parameter {param}.");
                             break;
                     }

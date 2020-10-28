@@ -74,7 +74,7 @@ namespace StarWar.Microservices.Starship.Domain.Services.Journey.Classes
             var orderedStarships = ratedStarships.OrderByDescending(ssp => ssp.TotalPoints).ToList();
             if (includeRecommended)
             {
-                foreach (var starship in ratedStarships.Take(3))
+                foreach (var starship in orderedStarships.Take(3))
                 {
                     starship.Recommended = true;
                 }

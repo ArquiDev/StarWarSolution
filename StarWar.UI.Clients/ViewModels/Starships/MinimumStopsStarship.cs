@@ -14,7 +14,8 @@ namespace StarWar.UI.Clients.ViewModels.Starships
         public int? MinimumStops { get; set; }
         public bool Recommended { get; set; }
 
-        public string GetLine() => $"  -> {GetRecommended()}{Name} ({Model})";
+        public string GetLine() => $"  -> {GetRecommended()} {Name} ({Model}): {GetMinimumStopsText()} stops.";
         private string GetRecommended() => Recommended ? "*" : " ";
+        private string GetMinimumStopsText() => MinimumStops.HasValue ? MinimumStops.ToString() : "Unknown";
     }
 }

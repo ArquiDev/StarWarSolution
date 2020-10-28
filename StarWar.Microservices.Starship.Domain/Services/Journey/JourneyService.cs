@@ -23,6 +23,7 @@ namespace StarWar.Microservices.Starship.Domain.Services.Journey
                 MinimumStops = oss.MGLT.HasValue ?
                     Convert.ToInt32(Math.Floor(distanceMGLT / oss.MGLT.Value)) :
                     null as int?,
+                Recommended = oss.Recommended,
             });
             if (!includeUnknownMGLT)
                 starships = starships.Where(s => s.MinimumStops.HasValue);

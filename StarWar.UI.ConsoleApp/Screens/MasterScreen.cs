@@ -10,7 +10,7 @@ namespace StarWar.UI.ConsoleApp.Screens
         {
             Console.WriteLine("*****************************************************************");
             Console.WriteLine("**                                                             **");
-            Console.WriteLine("**                 Starship Application                          **");
+            Console.WriteLine("**                 Starship Application                        **");
             Console.WriteLine("**                                                             **");
             Console.WriteLine("*****************************************************************");
             Console.WriteLine();
