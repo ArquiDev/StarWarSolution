@@ -1,11 +1,8 @@
 ﻿using Newtonsoft.Json;
-using StarWar.Microservices.Starship.Infrastructure.Swapi.Queries;
 using StarWar.Microservices.Starship.Infrastructure.Swapi.Responses;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace StarWar.Microservices.Starship.Infrastructure.Swapi

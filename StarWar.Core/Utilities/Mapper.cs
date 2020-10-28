@@ -1,9 +1,7 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace StarWar.Microservices.Starship.API.Utilities
+namespace StarWar.Core.Utilities
 {
     public static class Mapper
     {

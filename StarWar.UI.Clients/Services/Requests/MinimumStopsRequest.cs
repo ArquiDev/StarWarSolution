@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StarWar.UI.Common.ViewModels.Starships
+namespace StarWar.UI.Clients.Services.Requests
 {
-    public class MinimumStops
+    public class MinimumStopsRequest
     {
         public bool ShowUnknowns { get; set; }
         public bool ShowRecommended { get; set; }
-
+        public int DistanceMGLT { get; set; }
     }
 }

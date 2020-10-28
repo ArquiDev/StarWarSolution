@@ -49,7 +49,7 @@ namespace StarWar.Microservices.Starship.Domain.Services.Journey.Classes
                0 :
                relevance * (1 - (Math.Abs(total - value) / total));
 
-        internal static List<StarshipPointJourney> GetRatedList(IEnumerable<StarshipQueryResult> apiStarships)
+        internal static List<StarshipPointJourney> GetRatedList(IEnumerable<StarshipQueryResult> apiStarships, bool includeRecommended)
         {
             Func<string, decimal> getDecimal = value => decimal.TryParse(value, out decimal res) ? res : 0;
             var ratedStarships = apiStarships.Select(ass => new StarshipPointJourney
@@ -72,9 +72,12 @@ namespace StarWar.Microservices.Starship.Domain.Services.Journey.Classes
             TotalMaxMGLT = ratedStarships.Max(ss => ss.MGLT ?? 0);
 
             var orderedStarships = ratedStarships.OrderByDescending(ssp => ssp.TotalPoints).ToList();
-            foreach (var starship in ratedStarships.Take(3))
+            if (includeRecommended)
             {
-                starship.Recommended = true;
+                foreach (var starship in ratedStarships.Take(3))
+                {
+                    starship.Recommended = true;
+                }
             }
             return orderedStarships;
         }

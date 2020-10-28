@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
-using StarWar.Microservices.Starship.API.Models;
-using StarWar.Microservices.Starship.API.Utilities;
+using StarWar.Core.Utilities;
+using StarWar.Microservices.Starship.API.Responses;
 using StarWar.Microservices.Starship.Domain.Entities;
 using StarWar.Microservices.Starship.Domain.Services.Journey;
 using System.Collections.Generic;
@@ -10,14 +10,15 @@ namespace StarWar.Microservices.Starship.API.Controllers
 {
     public class JourneyController
     {
-        private readonly (ILogger<JourneyController> Logger, IJourneyService JourneyService) _services;
+        private readonly ILogger<JourneyController> _logger; 
+        private readonly IJourneyService _journeyService;
 
-        public JourneyController(ILogger<JourneyController> logger, IJourneyService journeyService) => 
-            _services = (logger, journeyService);
+        public JourneyController(ILogger<JourneyController> logger, IJourneyService journeyService) =>
+            (_logger, _journeyService) = (logger, journeyService);
 
-        public async Task<List<StarshipMinimumStopsResponse>> MinimumStops(int distanceMGLT) =>
+        public async Task<List<StarshipMinimumStopsResponse>> MinimumStops(int distanceMGLT, bool showUnknown, bool showRecommended) =>
             Mapper.SimpleListMap<StarshipJourney, StarshipMinimumStopsResponse>(
-                await _services.JourneyService.GetStarshipMinimumStops(distanceMGLT, false));
+                await _journeyService.GetStarshipMinimumStops(distanceMGLT, showUnknown, showRecommended));
     
     }
 }

@@ -8,6 +8,6 @@ namespace StarWar.Microservices.Starship.Domain.Services.Journey
 {
     public interface IJourneyService
     {
-        Task<List<StarshipJourney>> GetStarshipMinimumStops(int distanceMGLT, bool includeUnknownMGLT);
+        Task<List<StarshipJourney>> GetStarshipMinimumStops(int distanceMGLT, bool includeUnknownMGLT, bool includeRecommended);
     }
 }

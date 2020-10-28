@@ -1,9 +1,5 @@
-﻿using StarWar.UI.Common.Exceptions;
-using StarWar.UI.ConsoleApp.Classes;
-using System;
+﻿using StarWar.UI.ConsoleApp.Classes;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace StarWar.UI.ConsoleApp.Utilities
 {

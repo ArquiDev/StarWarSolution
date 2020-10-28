@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace StarWar.Microservices.Starship.API.Models
+namespace StarWar.Microservices.Starship.API.Responses
 {
     public class StarshipMinimumStopsResponse
     {

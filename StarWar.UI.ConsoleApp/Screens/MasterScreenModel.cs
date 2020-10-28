@@ -16,7 +16,6 @@ namespace StarWar.UI.ConsoleApp.Screens
             Console.Clear();
             WriteHead();
             WriteBody(model);
-            WriteFood();
         }
     }
 }

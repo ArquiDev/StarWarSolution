@@ -11,11 +11,11 @@ namespace StarWar.Microservices.Starship.Domain.Services.Journey
 {
     public class JourneyService : IJourneyService
     {
-        public async Task<List<StarshipJourney>> GetStarshipMinimumStops(int distanceMGLT, bool includeUnknownMGLT)
+        public async Task<List<StarshipJourney>> GetStarshipMinimumStops(int distanceMGLT, bool includeUnknownMGLT, bool includeRecommended)
         {
             Func<string, decimal> getDecimal = value => decimal.TryParse(value, out decimal res) ? res : 0; 
             var apiStarships = await SwapiService.Swapi.GetAPIStarships();
-            var ratedStarships = StarshipPointJourney.GetRatedList(apiStarships);
+            var ratedStarships = StarshipPointJourney.GetRatedList(apiStarships, includeRecommended);
             var starships = ratedStarships.Select(oss => new StarshipJourney
             {
                 Name = oss.ApiStarship.name,

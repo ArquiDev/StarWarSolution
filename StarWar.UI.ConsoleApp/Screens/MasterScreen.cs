@@ -15,12 +15,5 @@ namespace StarWar.UI.ConsoleApp.Screens
             Console.WriteLine("*****************************************************************");
             Console.WriteLine();
         }
-        protected void WriteFood()
-        {
-            Console.WriteLine();
-            Console.WriteLine("*****************************************************************");
-            Console.WriteLine("**  Thank you for using Turtle Application.                    **");
-            Console.WriteLine("*****************************************************************");
-        }
     }
 }
